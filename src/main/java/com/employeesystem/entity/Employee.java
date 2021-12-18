@@ -1,6 +1,12 @@
 package com.employeesystem.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String address;
@@ -10,6 +16,7 @@ public class Employee {
     public Employee() {
         super();
     }
+
 
     public int getId() {
         return id;
@@ -46,8 +53,8 @@ public class Employee {
         return phone;
     }
 
-    public void setPno(String pno) {
-        this.phone = pno;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override
@@ -57,7 +64,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
-                ", pno='" + phone + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }
