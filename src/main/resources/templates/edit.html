@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" >
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -40,30 +40,30 @@
         <div class="col-md6 offset-md-3">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="text-center text-primary">Add Employee</h4>
-                    <form action="/register" method="post">
+                    <h4 class="text-center text-primary">edit Employee</h4>
+                    <form action={"/edit/","/update"} method="post"  th:object="${emp}">
                         <div class="form-group">
                             <label>Enter full name</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" value="${emp.name}">
 
                         </div>
                         <div class="form-group">
                             <label>Enter Address</label>
-                            <input type="text" class="form-control" name="address">
+                            <input type="text" class="form-control" name="address"value="${emp.address}">
 
                         </div>
                         <div class="form-group">
                             <label>Enter Email</label>
-                            <input type="email" class="form-control" name="email">
+                            <input type="email" class="form-control" name="email"value="${emp.email}">
 
                         </div>
                         <div class="form-group">
                             <label>Enter Phone number</label>
-                            <input type="text" class="form-control" name="phone">
+                            <input type="text" class="form-control" name="phone"value="${emp.phone}">
 
                         </div>
                         <div class="form-group">
-                        <input type="submit" value="save" >
+                            <input type="submit" value="save" >
                         </div>
                         <!--<button class="btn btn-primary btn-block">Submit</button>-->
                     </form>

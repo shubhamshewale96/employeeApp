@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en" >
->
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -33,40 +32,33 @@
     </div>
 </nav>
 <!--Nav bar closed-->
+
+
+
 <!--Table-->
 <div class="container p-5">
     <table class="table table-striped">
         <thead class="bg-primary text-white">
-        <tr>
+        <tr >
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Address</th>
             <th scope="col">phone no</th>
             <th scope="col">Email Id</th>
+            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@mdo</td>
+        <tr th:each ="e:${emp}">
+            <th>th:text ="${e.id}">1</th>
+            <td>th:text="${e.name}"</td>
+            <td>th:text="${e.address}"</td>
+            <td>th:text="${e.phone}"</td>
+            <td>th:text="${e.email}"</td>
+            <td>
+                <a class="btn btn-sm btn-primary" href="/edit/{id}(id=$e.id)">Edit</a>
+                <a class="btn btn-sm btn-danger">Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>
