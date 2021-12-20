@@ -18,10 +18,10 @@ public class EmpController {
 
     @GetMapping( {"/", "/home"})
     public String home(Model m){
-        List<Employee> emp = employeeService.getAllEmp();
-        m.addAttribute("emp",emp);
+        m.addAttribute("empList",employeeService.getAllEmp());
         return "index";
     }
+
     @GetMapping(value={"/addemp", "/greeting"})
     public String addEmpPage(){
 
@@ -44,9 +44,16 @@ public class EmpController {
         return "edit";
     }
     @PostMapping("/update")
-    public String updateEmp(@ModelAttribute Employee e){
+    public String updateEmp(@ModelAttribute Employee e,HttpSession session){
         employeeService.addEmp(e);
+        session.setAttribute("msg","Employee data updated successfully..");
         return "redirect:/";
+    }
+    @GetMapping("/delete/{id}")
+    public String deleteEmp(@PathVariable int id,Model m,HttpSession session){
+        employeeService.deleteEmployee(id);
+        session.setAttribute("msg","Employee deleted successfully");
+        return  "redirect:/";
     }
 
 }
