@@ -22,7 +22,7 @@ public class EmpController {
         return "index";
     }
 
-    @GetMapping(value={"/addemp", "/greeting"})
+    @GetMapping(value="/addemp")
     public String addEmpPage(){
 
         return "addemp";
